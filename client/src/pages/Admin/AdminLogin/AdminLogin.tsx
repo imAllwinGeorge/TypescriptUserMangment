@@ -60,14 +60,14 @@ export const AdminLogin = () => {
     if (!trimmedPassword) {
       newErrors.password = "Password should not be empty.";
     }
-    // else if (
-    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-    //     password
-    //   )
-    // ) {
-    //   newErrors.password =
-    //     "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.";
-    // }
+    else if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        password
+      )
+    ) {
+      newErrors.password =
+        "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.";
+    }
 
     if (Object.keys(newErrors).length > 0) {
       return setError(newErrors);
